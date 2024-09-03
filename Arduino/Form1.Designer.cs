@@ -55,6 +55,7 @@
             btnEnviar.TabIndex = 1;
             btnEnviar.Text = "Enviar";
             btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // cmbPortas
             // 

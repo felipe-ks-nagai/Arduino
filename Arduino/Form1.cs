@@ -29,14 +29,16 @@ namespace Arduino
             var qtdeDiferente = false;
 
             if (cmbPortas.Items.Count == SerialPort.GetPortNames().Length)
+            {
                 foreach (var porta in SerialPort.GetPortNames())
                     if (!cmbPortas.Items[i++].Equals(porta))
                     {
                         qtdeDiferente = true;
                         break;
                     }
-                    else
-                        qtdeDiferente = true;
+            }
+            else
+                qtdeDiferente = true;
 
             if (!qtdeDiferente)
                 return;
@@ -78,6 +80,12 @@ namespace Arduino
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if(srpArduino.IsOpen)
+                srpArduino.Write(txtEnviar.Text);
         }
     }
 }
