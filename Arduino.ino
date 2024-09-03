@@ -13,7 +13,13 @@ void loop() {
     switch(Serial.read())      //verifica qual caracter recebido
     {
       case 'A':                  //caso 'A'
-        digitalWrite(LED_BUILTIN,!digitalRead(LED_BUILTIN)); //inverte estado do led
+        if(digitalRead(LED_BUILTIN) == HIGH){
+          digitalWrite(LED_BUILTIN, LOW);
+          Serial.println("LED Desligado!")
+        }else{
+          digitalWrite(LED_BUILTIN, HIGH);
+          Serial.println("LED Ligado!")
+        }
       break;
     }
   }
