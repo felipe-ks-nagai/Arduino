@@ -14,7 +14,8 @@ namespace Arduino
 
         private void SrpArduino_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            txtReceber.Text += srpArduino.ReadExisting();
+            var dados = srpArduino.ReadLine();
+            txtReceber.Invoke(new Action(() => { txtReceber.Text += dados + "\n"; }));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Arduino
             {
                 try
                 {
-                    srpArduino.PortName = cmbPortas.SelectedText;
+                    srpArduino.PortName = cmbPortas.Text;
                     srpArduino.Open();
                     btnConectar.Text = "Desconectar";
                     cmbPortas.Enabled = false;
