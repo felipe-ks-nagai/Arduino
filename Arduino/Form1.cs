@@ -83,10 +83,34 @@ namespace Arduino
             }
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
+
+
+        private void txtEnviar_TextChanged(object sender, EventArgs e)
         {
-            if(srpArduino.IsOpen)
-                srpArduino.Write(txtEnviar.Text);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbAmarelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (srpArduino.IsOpen)
+                srpArduino.Write(cmbAmarelo.Text);
+        }
+
+        private void cmbVermelho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (srpArduino.IsOpen)
+                srpArduino.Write(cmbVermelho.Text);
+        }
+
+        private void cmbVerde_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (srpArduino.IsOpen)
+                srpArduino.Write(cmbVerde.Text);
         }
     }
 }
